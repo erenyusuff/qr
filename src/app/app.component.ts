@@ -19,6 +19,7 @@ export class AppComponent {
   constructor(private fb: FormBuilder) {}
 
  async send(){
+   console.log('qwe')
    emailjs.init('jA57RRSFZKW_ovFsh')
    let response = await emailjs.send('service_1u2y2je','template_owgxv9m', {
      name: this.form.value.name,
