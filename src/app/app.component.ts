@@ -18,7 +18,7 @@ export class AppComponent {
    department: ['', Validators.required],
    experience: ['', Validators.required],
    available_time: ['', Validators.required],
- },Validators.requiredTrue)
+ })
   constructor(private fb: FormBuilder) {}
 
  async send(){
