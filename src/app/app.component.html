@@ -61,13 +61,18 @@
             </div>
             <div class="form-group">
               <label for="phone_number">Telefon Numaranız</label>
-              <input type="text" class="form-control" id="phone_number" formControlName="phone_number" placeholder="Telefon numaranız">
+              <input type="text" class="form-control" id="phone_number" formControlName="phone_number" placeholder="Telefon numaranızı giriniz">
             </div>
-            <div *ngIf="form.controls['phone_number'].invalid && (form.controls['phone_number'].dirty || form.controls['phone_number'].touched)" class="alert alert-danger">
-              <div *ngIf="form.controls['phone_number'].errors">
-                Zorunlu alan.
-              </div>
+            <div *ngIf="m.phone_number.touched && m.phone_number.invalid" class="alert alert-danger">
+              <div *ngIf="m.phone_number.errors?.pattern">Lütfen telefon numaranızı 10 haneli şekilde giriniz.</div>
+              <div *ngIf="m.phone_number.errors?.required">Zorunlu alan.</div>
             </div>
+<!--            <div *ngIf="form.controls['phone_number'].invalid && (form.controls['phone_number'].dirty || form.controls['phone_number'].touched)" class="alert alert-danger">-->
+<!--              <div *ngIf="form.controls['phone_number'].errors">-->
+<!--                Zorunlu alan.-->
+<!--              </div>-->
+<!--            </div>-->
+
             <div class="form-group">
               <label for="department">Başvuru yapmak istediğiniz bölüm</label>
               <select class="form-control" id="department" formControlName="department">
@@ -91,7 +96,10 @@
             </div>
             <div class="form-group">
               <label for="available_time">Atölye çalışmalarına ne sıklıkla katılabilirsiniz?</label>
-              <input type="text" class="form-control" id="available_time" formControlName="available_time" placeholder="Atölye çalışmalarına ne sıklıkla katılabilirsiniz?">
+              <select class="form-control" id="available_time" formControlName="available_time">
+                <option disabled selected>Saat seçiniz</option>
+                <option *ngFor="let item of available_times" [value]="item">{{ item }}</option>
+              </select>
             </div>
             <div *ngIf="form.controls['available_time'].invalid && (form.controls['available_time'].dirty || form.controls['available_time'].touched)" class="alert alert-danger">
               <div *ngIf="form.controls['available_time'].errors">
