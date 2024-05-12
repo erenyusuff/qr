@@ -8,10 +8,13 @@ import {FormBuilder, FormGroup} from "@angular/forms";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  departments: any = ['pilotluk','mekanik','tasarım']
  form: FormGroup = this.fb.group({
    name: '',
    surname: '',
    class: '',
+   email: '',
+   phone_number: '',
    department: '',
    experience: '',
    available_time: ''
@@ -25,6 +28,8 @@ export class AppComponent {
      name: this.form.value.name,
      surname: this.form.value.surname,
      class: this.form.value.class,
+     email: this.form.value.email,
+     phone_number: this.form.value.phone_number,
      department: this.form.value.department,
      experience: this.form.value.experience,
      available_time: this.form.value.available_time

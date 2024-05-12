@@ -7,41 +7,55 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="container mt-4 mb-4">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div>
-        <form [formGroup]="form" action="javascript:void(0)" (submit)="send()">
-          <div class="form-group">
-            <label for="name">İsminiz</label>
-            <input type="text" class="form-control" id="name" formControlName="name" placeholder="İsminiz">
-          </div>
-          <div class="form-group">
-            <label for="surname">Soyadınız</label>
-            <input type="text" class="form-control" id="surname" formControlName="surname" placeholder="Soyadınız">
-          </div>
-          <div class="form-group">
-            <label for="class">Sınıfınız</label>
-            <input type="text" class="form-control" id="class" formControlName="class" placeholder="Sınıfınız">
-          </div>
-          <div class="form-group">
-            <label for="department">Başvuru yapmak istediğiniz bölüm</label>
-            <input type="text" class="form-control" id="department" formControlName="department" placeholder="Başvuru yapmak istediğiniz bölüm">
-          </div>
-          <div class="form-group">
-            <label for="experience">Herhangi bir tecrübeniz var mı? Varsa belirtiniz.</label>
-            <input type="text" class="form-control" id="experience" formControlName="experience" placeholder="Herhangi bir tecrübeniz var mı? Varsa belirtiniz.">
-          </div>
-          <div class="form-group">
-            <label for="available_time">Atölye çalışmalarına ne sıklıkla katılabilirsiniz?</label>
-            <input type="text" class="form-control" id="available_time" formControlName="available_time" placeholder="Atölye çalışmalarına ne sıklıkla katılabilirsiniz?">
-          </div>
-        </form>
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          Başvuru Formu
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form" action="javascript:void(0)" (submit)="send()">
+            <div class="form-group">
+              <label for="name">İsminiz</label>
+              <input type="text" class="form-control" id="name" formControlName="name" placeholder="İsminiz">
+            </div>
+            <div class="form-group">
+              <label for="surname">Soyadınız</label>
+              <input type="text" class="form-control" id="surname" formControlName="surname" placeholder="Soyadınız">
+            </div>
+            <div class="form-group">
+              <label for="class">Sınıfınız</label>
+              <input type="text" class="form-control" id="class" formControlName="class" placeholder="Sınıfınız">
+            </div>
+            <div class="form-group">
+              <label for="email">E-mailiniz</label>
+              <input type="email" class="form-control" id="email" formControlName="email" placeholder="Emailiniz">
+            </div>
+            <div class="form-group">
+              <label for="phone_number">Telefon Numaranız</label>
+              <input type="text" class="form-control" id="phone_number" formControlName="phone_number" placeholder="Telefon numaranız">
+            </div>
+            <div class="form-group">
+              <label for="department">Başvuru yapmak istediğiniz bölüm</label>
+              <select class="form-select" id="department" formControlName="department">
+                <option *ngFor="let item of departments" [value]="item">{{ item }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="experience">Herhangi bir tecrübeniz var mı? Varsa belirtiniz.</label>
+              <input type="text" class="form-control" id="experience" formControlName="experience" placeholder="Herhangi bir tecrübeniz var mı? Varsa belirtiniz.">
+            </div>
+            <div class="form-group">
+              <label for="available_time">Atölye çalışmalarına ne sıklıkla katılabilirsiniz?</label>
+              <input type="text" class="form-control" id="available_time" formControlName="available_time" placeholder="Atölye çalışmalarına ne sıklıkla katılabilirsiniz?">
+            </div>
+            <button class="btn btn-primary" type="submit" (click)="send()">Onayla</button>
+          </form>
+        </div>
       </div>
-      <button class="btn btn-primary" type="submit" (click)="send()">Onayla</button>
     </div>
   </div>
 </div>
 </body>
 </html>
-
