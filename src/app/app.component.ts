@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import emailjs from '@emailjs/browser';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -8,17 +8,17 @@ import {FormBuilder, FormGroup} from "@angular/forms";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  departments: any = ['pilotluk','mekanik','tasarım']
- form: FormGroup = this.fb.group({
-   name: '',
-   surname: '',
-   class: '',
-   email: '',
-   phone_number: '',
-   department: '',
-   experience: '',
-   available_time: ''
- })
+  departments: any = ['Pilotluk','Mekanik','Tasarım']
+ form: FormGroup = this.fb.group( {
+   name: ['', Validators.required],
+   surname: ['', Validators.required],
+   class: ['', Validators.required],
+   email: ['', Validators.required],
+   phone_number: ['', Validators.required],
+   department: ['', Validators.required],
+   experience: ['', Validators.required],
+   available_time: ['', Validators.required],
+ },Validators.requiredTrue)
   constructor(private fb: FormBuilder) {}
 
  async send(){
