@@ -20,16 +20,11 @@
               <label for="name">İsminiz</label>
               <input type="text" class="form-control" id="name" formControlName="name" placeholder="İsminiz">
             </div>
-
             <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)" class="alert alert-danger">
               <div *ngIf="form.controls['name'].errors">
                 Zorunlu alan.
               </div>
             </div>
-
-
-
-
             <div class="form-group">
               <label for="surname">Soyadınız</label>
               <input type="text" class="form-control" id="surname" formControlName="surname" placeholder="Soyadınız">
@@ -63,18 +58,18 @@
               <label for="phone_number">Telefon Numaranız</label>
               <input type="text" class="form-control" id="phone_number" formControlName="phone_number" placeholder="Telefon numaranızı giriniz">
             </div>
-            <div *ngIf="m.phone_number.touched && m.phone_number.invalid" class="alert alert-danger">
-              <div *ngIf="m.phone_number.errors?.pattern">Lütfen telefon numaranızı 10 haneli şekilde giriniz.</div>
-              <div *ngIf="m.phone_number.errors?.required">Zorunlu alan.</div>
-            </div>
-<!--            <div *ngIf="form.controls['phone_number'].invalid && (form.controls['phone_number'].dirty || form.controls['phone_number'].touched)" class="alert alert-danger">-->
-<!--              <div *ngIf="form.controls['phone_number'].errors">-->
-<!--                Zorunlu alan.-->
-<!--              </div>-->
+<!--            <div *ngIf="m.phone_number.touched && m.phone_number.invalid" class="alert alert-danger">-->
+<!--              <div *ngIf="m.phone_number.errors?.pattern">Lütfen telefon numaranızı 10 haneli şekilde giriniz.</div>-->
+<!--              <div *ngIf="m.phone_number.errors?.required">Zorunlu alan.</div>-->
 <!--            </div>-->
+            <div *ngIf="form.controls['phone_number'].invalid && (form.controls['phone_number'].dirty || form.controls['phone_number'].touched)" class="alert alert-danger">
+              <div *ngIf="form.controls['phone_number'].errors">
+                Zorunlu alan.
+              </div>
+            </div>
 
             <div class="form-group">
-              <label for="department">Başvuru yapmak istediğiniz bölüm</label>
+              <label for="department">Başvuru yapmak istediğiniz bölümü seçiniz</label>
               <select class="form-control" id="department" formControlName="department">
                 <option disabled selected>Bölüm Seçiniz</option>
                 <option *ngFor="let item of departments" [value]="item">{{ item }}</option>
@@ -94,6 +89,20 @@
                 Zorunlu alan.
               </div>
             </div>
+
+            <div class="form-group">
+              <label for="organization">Deneyap veya Bilsem organizasyonlarına üye misiniz?</label>
+              <select class="form-control" id="organization" formControlName="organization">
+                <option disabled selected>Cevap seçiniz</option>
+                <option *ngFor="let item of bool" [value]="item">{{ item }}</option>
+              </select>
+            </div>
+            <div *ngIf="form.controls['organization'].invalid && (form.controls['organization'].dirty || form.controls['organization'].touched)" class="alert alert-danger">
+              <div *ngIf="form.controls['organization'].errors">
+                Zorunlu alan.
+              </div>
+            </div>
+
             <div class="form-group">
               <label for="available_time">Atölye çalışmalarına ne sıklıkla katılabilirsiniz?</label>
               <select class="form-control" id="available_time" formControlName="available_time">

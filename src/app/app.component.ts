@@ -10,14 +10,17 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class AppComponent {
   departments: any = ['Pilotluk','Mekanik','Tasarım']
   available_times: any = ['0-1 Saat','1-2 Saat','2-3 Saat','3 Saat ve Üzeri']
+  bool: any = ['Evet','Hayır']
  form: FormGroup = this.fb.group( {
    name: ['', Validators.required],
    surname: ['', Validators.required],
    class: ['', Validators.required],
    email: ['', Validators.required,Validators.email],
-   phone_number: ['',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+   // phone_number: ['',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+   phone_number: ['', Validators.required],
    department: ['', Validators.required],
    experience: ['', Validators.required],
+   organization: ['', Validators.required],
    available_time: ['', Validators.required],
  })
   constructor(private fb: FormBuilder) {}
@@ -33,6 +36,7 @@ export class AppComponent {
      phone_number: this.form.value.phone_number,
      department: this.form.value.department,
      experience: this.form.value.experience,
+     organization: this.form.value.organization,
      available_time: this.form.value.available_time
    })
 
